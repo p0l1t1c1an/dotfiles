@@ -1,0 +1,23 @@
+
+#TabsToolbar {
+    visibility: collapse !important;
+    collapsed: true;
+}
+
+#navigator-toolbox[inFullscreen="true"] #PersonalToolbar {
+  visibility: unset !important;
+}
+
+#sidebar {
+    max-width: 165px !important; 
+    min-width: 165px !important;
+}
+
+/* Hide splitter, when using Tree Style Tab. */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] + #sidebar-splitter {
+	display: none !important;
+}
+/* Hide sidebar header, when using Tree Style Tab. */
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+	visibility: collapse;
+}
