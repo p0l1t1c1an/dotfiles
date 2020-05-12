@@ -10,10 +10,6 @@ set $term alacritty
 set $menu bemenu-run --bottom --fn "Hack 9" --tf=#FFFFFF --ff=#FFFFFF --nf=#FFFFFF --hb=#FFFFFF --hf=#000000 | xargs swaymsg exec --
 
 ### Output configuration
-#
-#
-#Disable Xwayland
-xwayland disable
 
 # Default wallpaper (more resolutions are available in /usr/local/share/backgrounds/sway/)
 #output * bg /home/p0l1t1c1an/.backgrounds/poke_floyd.jpg fill
