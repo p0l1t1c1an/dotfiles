@@ -18,16 +18,18 @@ else
 
 	zstyle ':completion:*' menu select
 	autoload -U colors && colors
-	alias rm='rm -i' ls='ls --color=auto' :q='exit' vim='nvim'
+	alias rm='rm -i' ls='exa --color=auto' :q='exit' vim='nvim' free='freecolor -om'
 
+	autoload -U history-search-end
+	zle -N history-beginning-search-backward-end history-search-end
+	zle -N history-beginning-search-forward-end history-search-end
+	bindkey "^[[A" history-beginning-search-backward-end
+	bindkey "^[[B" history-beginning-search-forward-end
+	
 	source ~/powerlevel10k/powerlevel10k.zsh-theme
 	source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-	source ~/zsh-history-substring/zsh-history-substring-search.zsh
 
-	ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
-
-	bindkey '^[[A' history-substring-search-up
-	bindkey '^[[B' history-substring-search-down
+	ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
 	# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 	[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -6,12 +6,12 @@ transparent = #00000000
 foreground =  #ffffffff
 
 primary = #202090
-underline = #ffffff50
+underline = #ffee9b67
 alert = #bd2c40
 
 [bar/mybar]
 width = 100%
-height = 20
+height = 25
 offset-x = 0
 fixed-center = true
 enable-ipc = true
@@ -28,22 +28,22 @@ underline-size = 2
 border-bottom-size = 2
 border-bottom-color = ${colors.background2}
 
-padding-left = 3
+padding-left = 2
 padding-right = 2
 
 module-margin-left = 2
 module-margin-right = 2
 
 ; default fonts
-font-0 = FontAwesome:pixelsize=8.5;2
-font-1 = Hack Nerd Font:fontformat=truetype:pixelsize=8;2
+font-0 = FontAwesome:pixelsize=10;2
+font-1 = Hack Nerd Font:fontformat=truetype:pixelsize=9;2
 
 ; for larger icons
-font-2 = Hack Nerd Font:fontformat=truetype:pixelsize=12;2
+font-2 = Hack Nerd Font:fontformat=truetype:pixelsize=14;2
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = temperature battery date
+modules-right = alsa temperature bat0 bat1 date
 
 ; tray
 tray-position = right
@@ -104,9 +104,19 @@ label-padding = 2
 label-underline = ${colors.underline}
 label = %date%
 
-[module/battery]
+[module/bat0]
 type = custom/script
-exec = acpiconf -i 0 | grep -E -o '[0-9][0-9][0-9]?%'
+exec = acpiconf -i 0 | grep -E -o '[0-9][0-9]?%'
+interval = 10
+
+format-background = ${colors.background2}
+label-padding = 2
+label-underline = ${colors.underline}
+label = %output%
+
+[module/bat1]
+type = custom/script
+exec = acpiconf -i 1 | grep -E -o '[0-9][0-9]?%'
 interval = 10
 
 format-background = ${colors.background2}
@@ -124,11 +134,20 @@ label-padding = 2
 label-underline = ${colors.underline}
 label = %output%°C
 
+[module/alsa]
+type = custom/script
+exec = mixer vol | cut -d ':' -f2
+interval = 15
+
+format-background = ${colors.background2}
+label-padding = 2
+label-underline = ${colors.underline}
+label = %output%%
+
 [settings]
 screenchange-reload = true
 throttle-output = 5
 throttle-output-for = 10
-pseudo-transparency = true
 
 [global/wm]
 margin-top = 0
