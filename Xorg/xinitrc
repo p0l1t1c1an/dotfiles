@@ -1,0 +1,4 @@
+xsetroot -cursor_name left_ptr
+networkmgr &
+redshift-gtk &
+exec bspwm
