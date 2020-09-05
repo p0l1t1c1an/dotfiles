@@ -8,15 +8,15 @@ alt + Return
 
 # program launcher
 alt + d
-	dmenu_run -b -fn "Hack Nerd Font:pixelsize=10px" -nb '#000' -nf '#FFF' -sb '#FFFF50' -sf '#000' 
+	BEMENU_OPTS='-b --fn "FontAwesome 9" --tb "#000000" --tf "#FFFFFF" --hb "#8559DD" --hf "#000000"' bemenu-run
 
 # make sxhkd reload its configuration files:
 alt + Escape
 	pkill -x sxhkd && daemon sxhkd
 
 ## Volume control
-XF86Audio{RaiseVolume,LowerVolume,Mute}
-	amixer {-q set Master 5%+,-q set Master 5%-,set Master toggle}
+alt + {F3, F2}
+	mixer {-s vol +5,-s vol -5}
 
 #
 # bspwm hotkeys
@@ -100,7 +100,7 @@ alt + {o,i}
 
 # focus or send to the given desktop
 alt + {_,shift + }{1-8}
-	bspc {desktop -f,node -d} '^{1-8}'
+	bspc {desktop -f,node -d} "^{1-8}"
 
 alt + 9
 	blurlock			
