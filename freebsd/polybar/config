@@ -6,7 +6,7 @@ transparent = #00000000
 foreground =  #ffffffff
 
 primary = #202090
-underline = #ffee9b67
+underline = #ffd76000
 alert = #bd2c40
 
 [bar/mybar]
@@ -28,14 +28,18 @@ underline-size = 2
 border-bottom-size = 2
 border-bottom-color = ${colors.background2}
 
-padding-left = 2
-padding-right = 2
+padding-left = 1
+padding-right = 1
 
-module-margin-left = 2
-module-margin-right = 2
+module-margin-left = 1
+module-margin-right = 1
 
 ; default fonts
-font-0 = FontAwesome:pixelsize=10;2
+;font-0 = Font Awesome 5 Brands:pixelsize=10;2
+
+;font-0 = Literation Sans Nerd Font:style=book:pixelsize=10;2
+
+font-0 = Hack Nerd Font:style=Regular:pixelsize=10;2
 font-1 = Hack Nerd Font:fontformat=truetype:pixelsize=9;2
 
 ; for larger icons
@@ -43,11 +47,12 @@ font-2 = Hack Nerd Font:fontformat=truetype:pixelsize=14;2
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = alsa temperature bat0 bat1 date
+modules-right = sound cpu temperature bat0 bat1 date
 
 ; tray
 tray-position = right
 tray-background = ${colors.background2}
+tray-underline = ${colors.underline}
 tray-offset-x = 0
 tray-padding = 5
 
@@ -57,7 +62,7 @@ type = internal/xwindow
 
 format-background = ${colors.background2}
 format-foreground = ${colors.foreground}
-label-padding = 2
+label-padding = 1
 label-underline = ${colors.underline}
 label = %title:0:50%
 
@@ -79,7 +84,7 @@ label-focused-padding = 0
 ; unfocused
 label-dimmed-font = 2
 label-dimmed = " %name% "
-label-dimmed-background = $colors.background}
+label-dimmed-background = ${colors.background}
 label-dimmed-underline = ${colors.background}
 label-dimmed-padding = 0
 
@@ -100,27 +105,27 @@ date = %H:%M
 date-alt = %Y-%m-%d
 
 format-background = ${colors.background2}
-label-padding = 2
+label-padding = 1
 label-underline = ${colors.underline}
 label = %date%
 
 [module/bat0]
 type = custom/script
-exec = acpiconf -i 0 | grep -E -o '[0-9][0-9]?%'
+exec = acpiconf -i 0 | awk ' NR == 19 { print $3; }'
 interval = 10
 
 format-background = ${colors.background2}
-label-padding = 2
+label-padding = 1
 label-underline = ${colors.underline}
 label = %output%
 
 [module/bat1]
 type = custom/script
-exec = acpiconf -i 1 | grep -E -o '[0-9][0-9]?%'
+exec = acpiconf -i 1 | awk ' NR == 18 { print $3; }'
 interval = 10
 
 format-background = ${colors.background2}
-label-padding = 2
+label-padding = 1
 label-underline = ${colors.underline}
 label = %output%
 
@@ -130,24 +135,38 @@ exec = sysctl -n hw.acpi.thermal.tz0.temperature | tr -d C
 interval = 5
 
 format-background = ${colors.background2}
-label-padding = 2
+label-padding = 1
 label-underline = ${colors.underline}
 label = %output%°C
 
-[module/alsa]
+[module/sound]
 type = custom/script
 exec = mixer vol | cut -d ':' -f2
 interval = 15
 
 format-background = ${colors.background2}
-label-padding = 2
+label-padding = 1
 label-underline = ${colors.underline}
 label = %output%%
+
+[module/cpu]
+type = custom/script
+exec = ps u -U root | grep "[i]dle" | awk '{ printf "%.1f", 100 - $3/8}'
+interval = 5
+
+format-background = ${colors.background2}
+label-padding = 1
+label-underline = ${colors.underline}
+label = %output%%
+
 
 [settings]
 screenchange-reload = true
 throttle-output = 5
 throttle-output-for = 10
+
+compositing-underline = over
+pseudo-transparency = true
 
 [global/wm]
 margin-top = 0

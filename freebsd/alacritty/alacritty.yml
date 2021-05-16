@@ -10,6 +10,7 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
+  #TERM: alacritty
   TERM: st-256color
 
 #window:
@@ -184,7 +185,7 @@ colors:
   # Bright colors
   bright:
     black:   '0x696969'
-    red:     '0xFF2400'
+    red:     '0xD76000'
     green:   '0x03C03C'
     yellow:  '0xFDFF00'
     blue:    '0x007FFF'
@@ -452,8 +453,11 @@ live_config_reload: true
 # binding with the same triggers is defined. To unset a default binding, it can
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
 # a no-op if you do not wish to receive input characters for that binding.
-#key_bindings:
-  # (Windows/Linux only)
+
+key_bindings:
+
+  - { key: Semicolon,   mods: Control,      chars: "h\x1b"     } 
+  # (Windows/Linux only) 
   #- { key: V,        mods: Control|Shift, action: Paste            }
   #- { key: C,        mods: Control|Shift, action: Copy             }
   #- { key: Insert,   mods: Shift,         action: PasteSelection   }

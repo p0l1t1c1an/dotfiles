@@ -8,7 +8,7 @@ alt + Return
 
 # program launcher
 alt + d
-	BEMENU_OPTS='-b --fn "FontAwesome 9" --tb "#000000" --tf "#FFFFFF" --hb "#8559DD" --hf "#000000"' bemenu-run
+	BEMENU_OPTS='-b --fn "Font Awesome 5 Brands 10" --tb "#000000" --tf "#FFFFFF" --hb "#DF6500" --hf "#000000"' bemenu-run
 
 # make sxhkd reload its configuration files:
 alt + Escape
@@ -16,7 +16,14 @@ alt + Escape
 
 ## Volume control
 alt + {F3, F2}
-	mixer {-s vol +5,-s vol -5}
+	mixer {-s vol +5,-s vol -5} &> /dev/null
+
+alt + F1
+	togglevol
+
+## Screen capture
+Print + {_, shift}
+	sleep 0.2 ; scrot {-d 2,-s} "$HOME/Pictures/%Y-%m-%d_Screenshot.png" &> /dev/null
 
 #
 # bspwm hotkeys

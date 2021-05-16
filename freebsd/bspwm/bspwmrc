@@ -1,17 +1,18 @@
 #! /bin/sh
 
-daemon sxhkd
-daemon unclutter
-daemon picom
-#daemon redshift
-daemon ~/.fehbg
+sxhkd &
+unclutter &
+picom &
+redshift &
+~/.fehbg &
 $HOME/.config/polybar/launch.sh
-#daemon networkmgr
+networkmgr &
 xautolock -time 5 -locker "blurlock" -detectsleep -secure &
 
 xinput set-prop "pointer:Logitech USB Receiver" "Coordinate Transformation Matrix" .5 0 0 0 .5 0 0 0 1
 
-bspc monitor -d       
+#bspc monitor HDMI-2 -d       
+bspc monitor eDP-1 -d      
 
 bspc config border_width        0
 bspc config window_gap          6
