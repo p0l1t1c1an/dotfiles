@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -f ~/.togglevol ]
+then
+        mixer `cat $HOME/.togglevol`
+        rm ~/.togglevol
+else
+        mixer -s vol > $HOME/.togglevol
+        mixer vol 0:0
+fi
