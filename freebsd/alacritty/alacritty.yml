@@ -174,7 +174,7 @@ colors:
   # Normal colors
   normal:
     black:   '0x10100E'
-    red:     '0xC40233'
+    red:     '0xFF1433'
     green:   '0x009F6B'
     yellow:  '0xFFD700'
     blue:    '0x0087BD'
