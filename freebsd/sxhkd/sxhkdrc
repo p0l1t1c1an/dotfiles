@@ -8,7 +8,7 @@ alt + Return
 
 # program launcher
 alt + d
-	BEMENU_OPTS='-b --fn "Font Awesome 5 Brands 10" --tb "#000000" --tf "#FFFFFF" --hb "#DF6500" --hf "#000000"' bemenu-run
+	BEMENU_OPTS='-b --fn "DejaVu Sans 8" --tb "#000000" --tf "#FFFFFF" --hb "#DF6500" --hf "#000000"' bemenu-run
 
 # make sxhkd reload its configuration files:
 alt + Escape

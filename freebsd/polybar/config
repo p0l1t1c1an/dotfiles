@@ -28,18 +28,18 @@ underline-size = 2
 border-bottom-size = 2
 border-bottom-color = ${colors.background2}
 
-padding-left = 1
-padding-right = 1
+padding-left = 2
+padding-right = 2
 
-module-margin-left = 1
-module-margin-right = 1
+module-margin-left = 2
+module-margin-right = 2
 
 ; default fonts
 ;font-0 = Font Awesome 5 Brands:pixelsize=10;2
 
 ;font-0 = Literation Sans Nerd Font:style=book:pixelsize=10;2
 
-font-0 = Hack Nerd Font:style=Regular:pixelsize=10;2
+font-0 = Dejavu Sans:style=Regular:pixelsize=9;1
 font-1 = Hack Nerd Font:fontformat=truetype:pixelsize=9;2
 
 ; for larger icons
@@ -105,7 +105,7 @@ date = %H:%M
 date-alt = %Y-%m-%d
 
 format-background = ${colors.background2}
-label-padding = 1
+label-padding = 2
 label-underline = ${colors.underline}
 label = %date%
 
@@ -115,7 +115,7 @@ exec = acpiconf -i 0 | awk ' NR == 19 { print $3; }'
 interval = 10
 
 format-background = ${colors.background2}
-label-padding = 1
+label-padding = 2
 label-underline = ${colors.underline}
 label = %output%
 
@@ -125,7 +125,7 @@ exec = acpiconf -i 1 | awk ' NR == 18 { print $3; }'
 interval = 10
 
 format-background = ${colors.background2}
-label-padding = 1
+label-padding = 2
 label-underline = ${colors.underline}
 label = %output%
 
@@ -135,7 +135,7 @@ exec = sysctl -n hw.acpi.thermal.tz0.temperature | tr -d C
 interval = 5
 
 format-background = ${colors.background2}
-label-padding = 1
+label-padding = 2
 label-underline = ${colors.underline}
 label = %output%°C
 
@@ -145,7 +145,7 @@ exec = mixer vol | cut -d ':' -f2
 interval = 15
 
 format-background = ${colors.background2}
-label-padding = 1
+label-padding = 2
 label-underline = ${colors.underline}
 label = %output%%
 
@@ -155,7 +155,7 @@ exec = ps u -U root | grep "[i]dle" | awk '{ printf "%.1f", 100 - $3/8}'
 interval = 5
 
 format-background = ${colors.background2}
-label-padding = 1
+label-padding = 2
 label-underline = ${colors.underline}
 label = %output%%
 
