@@ -18,7 +18,7 @@ else
 
 	zstyle ':completion:*' menu select
 	autoload -U colors && colors
-	alias rm='rm -i' ls='exa --color=auto' :q='exit' vim='nvim' free='freecolor -om'
+	alias rm='rm -i' ls='exa --color=auto' :q='exit' vim='nvim'
 
 	autoload -U history-search-end
 	zle -N history-beginning-search-backward-end history-search-end
