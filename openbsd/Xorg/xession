@@ -1,11 +1,16 @@
 # use UTF8
 export LANG=en_US.UTF-8
 
+export PATH=$PATH:$HOME/bin
+
 # default cursor is normal pointer
 xsetroot -cursor_name left_ptr
 
 # disable system beep
 xset b off
+
+# disable core dumps
+ulimit -Sc 0
 
 # if you have a ThinkPad, the following lines enable TrackPoint
 # scrolling by dragging with the middle button.

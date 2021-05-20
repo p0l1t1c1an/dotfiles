@@ -1,9 +1,4 @@
-### 'Night' theme for CMus (for 255 color terms)
-### (C) 2013 Mladen Pejaković <pejakm@autistici.org>
-### {{{
 set color_cmdline_bg=default
-## Based on night.theme 
-## ie I copied and changed a few
 set color_cmdline_fg=255
 set color_error=196
 set color_info=220
@@ -11,19 +6,18 @@ set color_separator=005
 set color_statusline_bg=default
 set color_statusline_fg=003
 set color_titleline_bg=default
-set color_titleline_fg=003
+set color_titleline_fg=039
 set color_win_bg=default
-set color_win_cur=046
+set color_win_cur=164
 set color_win_cur_sel_bg=default
-set color_win_cur_sel_fg=118
+set color_win_cur_sel_fg=039
 set color_win_dir=250
 set color_win_fg=255
 set color_win_inactive_cur_sel_bg=default
-set color_win_inactive_cur_sel_fg=046
+set color_win_inactive_cur_sel_fg=039
 set color_win_inactive_sel_bg=default
-set color_win_inactive_sel_fg=002
+set color_win_inactive_sel_fg=039
 set color_win_sel_bg=default
 set color_win_sel_fg=003
 set color_win_title_bg=default
-set color_win_title_fg=003
-### }}}
+set color_win_title_fg=164
