@@ -8,7 +8,7 @@ alt + Return
 
 # program launcher
 alt + d
-	BEMENU_OPTS='-b --fn "FontAwesome 9" --tb "#000000" --tf "#FFFFFF" --hb "#8559DD" --hf "#000000"' bemenu-run
+	BEMENU_OPTS='-b --fn "FontAwesome 9" --fb "#242234" --ff "#843a84" --scb "#242234" --scf "#843a84" --nb "#242234" --nf "#843a84" --tb "#242234" --tf "#843a84" --hb "#843a84" --hf "#242234"' bemenu-run
 
 ## Volume control
 alt + {F2, F3}
@@ -109,7 +109,7 @@ alt + 9
 	blurlock			
 
 alt + {_,shift + }0 
-	shutdown -{p,r} now
+	doas {shutdown -p now, reboot}
 
 #
 # move/resize

@@ -1,0 +1,12 @@
+#! /bin/sh
+
+percent="0.0"
+
+cpus=$(systat -B cpu | awk 'NR > 4' | tr -ds '%' ' ' | cut -d ' ' -f2)
+
+for cpu in $cpus 
+do 
+	percent=$(echo "$percent + $cpu")
+done
+
+echo "scale=1; x=($percent) / 8.0; if(x<1 && x>0) print 0; x" | bc

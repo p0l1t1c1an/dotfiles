@@ -1,7 +1,7 @@
 
 [colors]
-background =  #55000000
-background2 = #9f000000
+background =  #1a000000
+background2 = #3f000000
 transparent = #00000000
 foreground =  #ffffffff
 
@@ -43,7 +43,7 @@ font-2 = Hack Nerd Font:fontformat=truetype:pixelsize=14;2
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = audio temperature bat0 bat1 date
+modules-right = audio cpu temperature bat0 bat1 date
 
 ; tray
 tray-position = right
@@ -79,7 +79,7 @@ label-focused-padding = 0
 ; unfocused
 label-dimmed-font = 2
 label-dimmed = " %name% "
-label-dimmed-background = $colors.background}
+label-dimmed-background = ${colors.background}
 label-dimmed-underline = ${colors.background}
 label-dimmed-padding = 0
 
@@ -144,10 +144,23 @@ label-padding = 2
 label-underline = ${colors.underline}
 label = %output%%
 
+[module/cpu]
+type = custom/script
+exec = cpu_percentage
+interval = 3
+
+format-background = ${colors.background2}
+label-padding = 1
+label-underline = ${colors.underline}
+label = %output%%
+
 [settings]
 screenchange-reload = true
 throttle-output = 5
 throttle-output-for = 10
+
+compositing-underline = over
+pseudo-transparency = true
 
 [global/wm]
 margin-top = 0

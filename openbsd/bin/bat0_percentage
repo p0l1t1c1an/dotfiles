@@ -1,0 +1,8 @@
+#! /bin/sh
+
+total=$(sysctl -n hw.sensors.acpibat0.watthour0 | cut -f1 -d ' ')
+curr=$(sysctl -n hw.sensors.acpibat0.watthour3 | cut -f1 -d ' ')
+
+#echo "Total: $total \nCurr: $curr"
+
+echo "$curr * 100 / $total" | bc
