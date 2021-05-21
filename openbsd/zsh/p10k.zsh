@@ -34,7 +34,9 @@
     # =========================[ Line #1 ]=========================
     #os_icon                 # os identifier
     dir                     # current directory
-    vcs                     # git status
+    gitstatus           # git status
+    #example
+    #vcs 
     # =========================[ Line #2 ]=========================
     newline                 # \n
     prompt_char             # prompt symbol
@@ -1448,7 +1450,13 @@
   #
   # Type `p10k help segment` for documentation and a more sophisticated example.
   function prompt_example() {
-    p10k segment -f 208 -i '⭐' -t 'hello, %n'
+    out=$($HOME/bin/custom_status_git)
+    p10k segment -f 208 -i '' -t 'hello, %n'
+  }
+
+  function prompt_gitstatus() {
+    out=$($HOME/bin/custom_status_git)
+    p10k segment -f 208 -i '' -t "$out"
   }
 
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job
