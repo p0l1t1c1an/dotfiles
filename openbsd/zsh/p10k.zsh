@@ -1450,13 +1450,14 @@
   #
   # Type `p10k help segment` for documentation and a more sophisticated example.
   function prompt_example() {
-    out=$($HOME/bin/custom_status_git)
     p10k segment -f 208 -i '' -t 'hello, %n'
   }
 
   function prompt_gitstatus() {
-    out=$($HOME/bin/custom_status_git)
-    p10k segment -f 208 -i '' -t "$out"
+    out=$($HOME/bin/custom_gitstatus)
+    if [ ! -z $out ]; 
+      then p10k segment -f 208 -i '' -t "$out"
+    fi
   }
 
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job
