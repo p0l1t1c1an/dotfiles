@@ -1454,7 +1454,7 @@
   }
 
   function prompt_gitstatus() {
-    out=$($HOME/bin/custom_gitstatus)
+    out=$($HOME/.cargo/bin/gitstatus)
     if [ ! -z $out ]; 
       then p10k segment -f 208 -i '' -t "$out"
     fi
