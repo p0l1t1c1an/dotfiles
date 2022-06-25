@@ -1,0 +1,9 @@
+#! env sh
+
+if [ $# -gt 0 ]; then
+    channel="$1"
+    TWITCH_CHANNEL="$channel" TWITCH_MESSAGES_BUFFER_SIZE=102 twitch-chat-tui
+else 
+    echo "Need to pass channel argument to command"
+fi
+

@@ -1,14 +1,15 @@
-#
 # wm independent hotkeys
 #
 
 # terminal emulator
 alt + Return
-	kitty
+	alacritty
 
 # program launcher
 alt + d
-	BEMENU_OPTS='-b --fn "FontAwesome 9" --fb "#242234" --ff "#843a84" --scb "#242234" --scf "#843a84" --nb "#242234" --nf "#843a84" --tb "#242234" --tf "#843a84" --hb "#843a84" --hf "#242234"' bemenu-run
+#	BEMENU_OPTS='-b --fn "FontAwesome 9" --fb "#242234" --ff "#843a84" --scb "#242234" --scf "#843a84" --nb "#242234" --nf "#843a84" --tb "#242234" --tf "#843a84" --hb "#843a84" --hf "#242234"' bemenu-run
+
+	dmenu_run -b -fn 'Hack Nerd Font:normal:pixelsize=12' -nb '#242234' -nf '#843a84' -sf '#242234' -sb '#843a84'
 
 ## Volume control
 alt + {F2, F3}
@@ -18,8 +19,8 @@ alt + {F1, F4}
 	sndioctl {output, input}.mute=!
 
 ## Screen capture
-Print + {_, shift}
-        sleep 0.2 ; scrot {-d 2,-s} "$HOME/Pictures/%Y-%m-%d_Screenshot.png" &> /dev/null
+alt + {_, shift} + F9
+	sleep 0.2; scrot {-d 2,-s} "$HOME/Pictures/%Y-%m-%d_Screenshot.png"
 
 #
 # bspwm hotkeys
@@ -102,14 +103,17 @@ alt + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-alt + {_,shift + }{1-8}
-	bspc {desktop -f,node -d} "^{1-8}"
+alt + {_,shift + }{1-6}
+	bspc {desktop -f, node -d} $(bspc query -M -m):\^{1-6}
+
+alt + {_, shift + } w
+	bspc {monitor -f next, node -m next}
 
 alt + 9
 	blurlock			
 
 alt + {_,shift + }0 
-	doas {shutdown -p now, reboot}
+	doas {/sbin/shutdown -p now, /sbin/reboot}
 
 #
 # move/resize

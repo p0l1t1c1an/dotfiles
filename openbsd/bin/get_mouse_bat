@@ -1,0 +1,12 @@
+#! env sh
+
+exists=$(sysctl | grep 'hw.sensors.uhidpp0.percent0')
+
+if [ -n "$exists" ]; then
+    output=$(sysctl -n hw.sensors.uhidpp0.percent0 | cut -f1 -d '.')
+    printf "%d%%" "$output"
+else
+    echo 'DisConn'
+fi
+
+

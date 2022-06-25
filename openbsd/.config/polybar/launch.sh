@@ -10,5 +10,6 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 export PATH=$PATH:$HOME/bin
 
 # Launch Polybar, using default config location ~/.config/polybar/config
-polybar mybar &
+polybar HDMI3 &
+polybar HDMI2 &
 

@@ -9,7 +9,7 @@ primary = #202090
 underline = #bb7547
 alert = #bd2c40
 
-[bar/mybar]
+[bar/base]
 width = 100%
 height = 25
 offset-x = 0
@@ -43,13 +43,21 @@ font-2 = Hack Nerd Font:fontformat=truetype:pixelsize=14;2
 
 modules-left = bspwm
 modules-center = xwindow
-modules-right = audio cpu temperature bat0 bat1 date
+modules-right = audio mouse temperature date
 
 ; tray
 tray-position = right
 tray-background = ${colors.background2}
 tray-offset-x = 0
 tray-padding = 5
+
+[bar/HDMI2]
+inherit = bar/base
+monitor = HDMI-2
+
+[bar/HDMI3]
+inherit = bar/base
+monitor = HDMI-3
 
 [module/xwindow]
 pin-output = false
@@ -104,25 +112,15 @@ label-padding = 2
 label-underline = ${colors.underline}
 label = %date%
 
-[module/bat0]
+[module/mouse]
 type = custom/script
-exec = bat0_percentage
+exec = sh /home/p0l1t1c1an/bin/get_mouse_bat
 interval = 10
 
 format-background = ${colors.background2}
 label-padding = 2
 label-underline = ${colors.underline}
-label = %output%%
-
-[module/bat1]
-type = custom/script
-exec = bat1_percentage
-interval = 10
-
-format-background = ${colors.background2}
-label-padding = 2
-label-underline = ${colors.underline}
-label = %output%%
+label = %output%
 
 [module/temperature]
 type = custom/script
@@ -158,9 +156,7 @@ label = %output%%
 screenchange-reload = true
 throttle-output = 5
 throttle-output-for = 10
-
 compositing-underline = over
-pseudo-transparency = true
 
 [global/wm]
 margin-top = 0

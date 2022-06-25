@@ -1,0 +1,28 @@
+
+[recorder]
+write_delay = 20
+productive = []
+
+
+[date_and_time]
+
+# MLK jr, Valentines, Thanksgiving, and Christmas turned off
+disabled_days = [
+    {month = "Jan", week = 3, day = "Mon"},
+    {month = "Feb", day = 14},
+    {month = "Nov", week = 4, day = "Thu"},
+    {month = "Dec", day = 25},
+]
+
+# 9am - 5pm hours Workdays
+# 12pm - 3pm hours Weekends
+start_hours = [
+    {weekday = "Mon", start = "9:30:00", stop = "17:00:00"},
+    {weekday = "Tue", start = "9:30:00", stop = "17:00:00"},
+    {weekday = "Wed", start = "9:30:00", stop = "17:00:00"},
+    {weekday = "Thu", start = "9:30:00", stop = "17:00:00"},
+    {weekday = "Fri", start = "9:30:00", stop = "17:00:00"},
+    {weekday = "Sat", start = "12:00:00", stop = "15:00:00"},
+    {weekday = "Sun", start = "12:00:00", stop = "15:00:00"},
+]
+

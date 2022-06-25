@@ -1453,13 +1453,6 @@
     p10k segment -f 208 -i '' -t 'hello, %n'
   }
 
-  function prompt_gitstatus() {
-    out=$($HOME/.cargo/bin/gitstatus)
-    if [ ! -z $out ]; 
-      then p10k segment -f 208 -i '' -t "$out"
-    fi
-  }
-
   # User-defined prompt segments may optionally provide an instant_prompt_* function. Its job
   # is to generate the prompt segment for display in instant prompt. See
   # https://github.com/romkatv/powerlevel10k/blob/master/README.md#instant-prompt.

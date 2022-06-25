@@ -2,7 +2,7 @@
 
 scrot $HOME/tmp/tmp_screen.png
 
-convert $HOME/tmp/tmp_screen.png -blur 0x10 $HOME/tmp/tmp_blur.png
+gm convert $HOME/tmp/tmp_screen.png -blur 0x05 $HOME/tmp/tmp_blur.png
 
 echo "Converted"
 
