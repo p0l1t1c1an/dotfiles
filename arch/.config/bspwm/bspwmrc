@@ -1,0 +1,34 @@
+#! /bin/sh
+
+sxhkd &
+unclutter &
+picom &
+~/.fehbg &
+$HOME/.config/polybar/launch.sh
+#networkmgr &
+xautolock -time 5 -locker "blurlock" -detectsleep -secure &
+
+xinput set-prop "pointer:Logitech USB Receiver" "Coordinate Transformation Matrix" .5 0 0 0 .5 0 0 0 1
+
+bspc monitor DP-1 -d 1 2 3 4 5 6
+bspc monitor eDP-1 -d      
+
+bspc config border_width        0
+bspc config window_gap          6
+
+bspc config pointer_modifier	control
+bspc config pointer_action1 	move
+bspc config pointer_action2		resize_side
+bspc config pointer_action3		resize_corner
+
+bspc config split_ratio         0.50
+bspc config borderless_monocle  true
+bspc config gapless_monocle     true
+bspc config automatic_scheme	longest_side
+
+bspc rule -a Firefox desktop='^3' state=fullscreen layer=below
+bspc rule -a Gimp desktop='^4'
+bspc rule -a Inkscape desktop='^5'
+bspc rule -a Mines state=floating layer=above
+bspc rule -a Pcmanfm state=floating layer=above
+
