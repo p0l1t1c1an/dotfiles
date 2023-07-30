@@ -1,9 +1,9 @@
 [submodule "openbsd/zsh-vi-mode"]
 	path = openbsd/zsh-vi-mode
-	url = https://github.com/jeffreytse/zsh-vi-mode.git
+	url = https://github.com/jeffreytse/zsh-vi-mode
 [submodule "openbsd/powerlevel10k"]
 	path = openbsd/powerlevel10k
-	url = https://github.com/romkatv/powerlevel10k.git
+	url = https://github.com/romkatv/powerlevel10k
 [submodule "openbsd/Programs/gitstatus-rs"]
 	path = openbsd/Programs/gitstatus-rs
 	url = https://github.com/p0l1t1c1an/gitstatus-rs.git
