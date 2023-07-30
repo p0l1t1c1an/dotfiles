@@ -457,7 +457,7 @@ shell:
 
 key_bindings:
 
-  - { key: Semicolon,   mods: Control,      chars: "h\x1b"     } 
+  - { key: Semicolon,   mods: Control,      chars: ""     } 
   # (Windows/Linux only) 
   #- { key: V,        mods: Control|Shift, action: Paste            }
   #- { key: C,        mods: Control|Shift, action: Copy             }

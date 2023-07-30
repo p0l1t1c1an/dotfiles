@@ -7,9 +7,9 @@ alt + Return
 
 # program launcher
 alt + d
-#	BEMENU_OPTS='-b --fn "FontAwesome 9" --fb "#242234" --ff "#843a84" --scb "#242234" --scf "#843a84" --nb "#242234" --nf "#843a84" --tb "#242234" --tf "#843a84" --hb "#843a84" --hf "#242234"' bemenu-run
+    BEMENU_OPTS='-b --fn "FontAwesome 9" --fb "#242234" --ff "#843a84" --scb "#242234" --scf "#843a84" --nb "#242234" --nf "#843a84" --tb "#242234" --tf "#843a84" --hb "#843a84" --hf "#242234"' bemenu-run
 
-	dmenu_run -b -fn 'Hack Nerd Font:normal:pixelsize=12' -nb '#242234' -nf '#843a84' -sf '#242234' -sb '#843a84'
+#dmenu_run -b -fn 'Hack Nerd Font:normal:pixelsize=12' -nb '#242234' -nf '#843a84' -sf '#242234' -sb '#843a84'
 
 ## Volume control
 alt + {F2, F3}
@@ -27,11 +27,11 @@ alt + {_, shift} + F9
 #
 
 # quit/restart bspwm
-alt + shift + q
-	bspc quit
+#alt + shift + q
+#	bspc quit
 
-alt + shift + r
-	reset_bspwm
+#alt + shift + r
+#	reset_bspwm
 
 # close and kill
 alt + {_,shift +}c
@@ -49,8 +49,8 @@ alt + shift + space
     	bspc node -t "~"{floating,tiled}
 
 ## Split horizontal, split vertical, or cancel
-alt + {h,v,r}
-	bspc node -p {east,south,cancel}
+#alt + {h,v,r}
+#	bspc node -p {east,south,cancel}
 
 ## Switch workspace
 alt + ctrl + {Left,Right}
@@ -80,6 +80,10 @@ alt + shift + BackSpace
 alt + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
 
+alt + {_,shift + }{l,j,k,semicolon}
+	bspc node -{f,s} {west,south,north,east}
+
+
 # focus the node for the given path jump
 alt + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
@@ -89,7 +93,7 @@ alt + {_,shift + }{n,p}
 	bspc node -{f,s} {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
-ctrl + alt + {h,l}
+ctrl + alt + {l,semicolon}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
@@ -108,6 +112,9 @@ alt + {_,shift + }{1-6}
 
 alt + {_, shift + } w
 	bspc {monitor -f next, node -m next}
+
+alt + {_, shift + } q
+	bspc {monitor -f prev, node -m prev}
 
 alt + 9
 	blurlock			

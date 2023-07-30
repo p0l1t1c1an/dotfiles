@@ -16,7 +16,7 @@ Plug 'mattn/vim-lsp-settings'
 
 Plug 'rust-lang/rust.vim'
 
-Plug 'dracula/vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-sensible'
 
 Plug 'preservim/nerdtree'
@@ -96,10 +96,12 @@ nmap <C-J> :wincmd j<CR>
 nmap <C-K> :wincmd k<CR>
 nmap <C-L> :wincmd h<CR>
 
-nmap h<Esc> <C-Semicolon>
+" map <C-6> <nop>
+map <C-^> <nop>
+nmap <C-^> <C-Semicolon>
 nnoremap <C-Semicolon> :wincmd l<CR>
-imap h<Esc> ;
-vmap h<Esc> ;
+imap <C-^> ;
+vmap <C-^> ;
 
 nmap <C-n> :NERDTreeToggle<CR>
 
